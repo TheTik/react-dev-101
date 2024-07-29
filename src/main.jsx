@@ -4,6 +4,15 @@ import App from './App.jsx'
 //import './index.css'
 
 //################################################################################################# 
+// Default demo
+//################################################################################################# 
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+
+//################################################################################################# 
 // React Router DOM for UserCRUDDemo components
 //################################################################################################# 
 // import { RouterProvider, createBrowserRouter } from 'react-router-dom' //npm install react-router-dom
@@ -159,11 +168,3 @@ import App from './App.jsx'
 //   </React.StrictMode>
 // );
 
-//################################################################################################# 
-// Default demo
-//################################################################################################# 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)

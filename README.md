@@ -9,6 +9,70 @@ Currently, two official plugins are available:
 
 
 # AppDev 
+
+# Install Node.js https://nodejs.org/en/download/package-manager
+# Install VSCode Extension  
+  - ES7+ React/Redux/React-Native snippets
+
+Web service API : https://mockapi.io/  
+Schema
+Id            Object ID
+createdAt     Faker.js        date.recent
+name          Faker.js        name.fullName
+avatar        Faker.js        image.avatar
+email         Faker.js        internet.email
+phoneNumber   Faker.js        phone.number
+
+Packet install.
+# npm install axios
+# npm install react-router-dom
+# npm install redux 
+# npm install react-redux
+# npm install redux-thunk
+# npm install @reduxjs/toolkit
+
+//import DataTable from "./Components/DataTable";
+
+# npm install jquery 
+# npm install jquery datatables.net datatables.net-dt datatables.net-responsive-dt
+# npm install --save-dev @types/jquery @types/datatables.net
+# npm install -g typescript
+
+- Create tsconfig.json : # tsc --init
+tsconfig.json 
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
+
+- Create file : tsconfig.node.json
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["vite.config.ts"]
+}
+
 ---------------------------------------------------------------------------------------------------------------------------------
 Web API
 ---------------------------------------------------------------------------------------------------------------------------------

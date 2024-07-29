@@ -24,10 +24,7 @@ Packet install.
 # npm install react-redux
 # npm install redux-thunk
 # npm install @reduxjs/toolkit
-# npm install jquery 
 */
-
-//import DataTable from "./Components/DataTable";
 
 // Crete react project and deploy
 import ShowUsers from "./Components/FetchData/ShowUsers";
@@ -127,3 +124,67 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//import DataTable from "./Components/DataTable";
+
+# npm install jquery 
+# npm install jquery datatables.net datatables.net-dt datatables.net-responsive-dt
+# npm install --save-dev @types/jquery @types/datatables.net
+# npm install -g typescript
+
+- Create tsconfig.json : # tsc --init
+tsconfig.json 
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
+
+- Create file : tsconfig.node.json
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["vite.config.ts"]
+}
+*/

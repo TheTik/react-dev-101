@@ -23,6 +23,7 @@ Packet install.
 # npm install react-redux
 # npm install redux-thunk
 # npm install @reduxjs/toolkit
+# npm install jquery 
 */
 
 //import DataTable from "./Components/DataTable";
@@ -67,6 +68,9 @@ import ReduxCounter from './Components/Redux/Pages/Counter'
 
 // redux, react-redux and redux-thunk for UserReducer deom
 // React Redux [UserReducer]
+
+// ACE HTMLTemplate demo
+import Home from './Components/HTMLTemplate/Template/Home'
 
 import './App.css';
 
@@ -115,6 +119,8 @@ function App() {
       {/* +++++ Redux basic Counter demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
       {/* <ReduxCounter /> */}
     
+      {/* +++++ ACE HTMLTemplate demo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}    
+      {/* <Home></Home> */}
     </div>
   );
 }

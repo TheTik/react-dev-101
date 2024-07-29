@@ -42,16 +42,13 @@ export function ReactDataTables({ ...props }: Config) {
        console.log('Current page:', currentPage);
      });
  
-
-
-
     return () => {
       dt.destroy();
     };
   }, []);
 
   return <>
-          <table ref={tableRef} className="table table-striped table-bordered table-hover display nowrap"></table>
+          <table ref={tableRef} className="table table-striped table-bordered table-hover display nowrap" style={{width:"100%"}}></table>
         </>;
 }
 

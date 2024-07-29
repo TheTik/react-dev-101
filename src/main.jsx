@@ -128,6 +128,38 @@ import App from './App.jsx'
 //################################################################################################# 
 
 //################################################################################################# 
+// ACE HTML Template
+//################################################################################################# 
+// import { RouterProvider, createBrowserRouter } from 'react-router-dom' //npm install react-router-dom
+// import UIPatent1 from './Components/HTMLTemplate/UIPatent1/Index.jsx'
+
+// import Default from './Components/HTMLTemplate/Template/Default.jsx'
+
+// const router = createBrowserRouter([
+//   {
+//       path: "/",
+//       element: <App />,
+//       children: [
+//                   {
+//                       path: "/",
+//                       element: <Default />
+//                   },    
+//                   {
+//                     path: "/UIPatent1",
+//                     element: <UIPatent1 />
+//                 },                      
+//       ],
+//   },
+// ]);
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//       <RouterProvider router={router} />
+//   </React.StrictMode>
+// );
+
+//################################################################################################# 
 // Default demo
 //################################################################################################# 
 ReactDOM.createRoot(document.getElementById('root')).render(

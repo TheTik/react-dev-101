@@ -44,12 +44,17 @@ class CounterClass extends React.Component {
     this.setState({ count: this.state.count + 1 });
   };
 
+  handleDecrement = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
+
   // render() เมื่อเรียกใช้มันจะทำการ return ค่าตาม this.props และ this.state
   render() {
     return (
       <div>
         <p>Count: {this.state.count}</p>
         <button onClick={this.handleIncrement}>Increment</button>
+        <button onClick={this.handleDecrement}>Decrement</button><br />
       </div>
     );
   }

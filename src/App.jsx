@@ -15,6 +15,7 @@
   - Redux basic
   - Redux thunk
 - Redux Toolkit
+- How to convert ACE HTML Template to React JS
 
 Packet install.
 # npm install axios
@@ -66,10 +67,10 @@ import ComponentA from "./Components/UseContextDemo/ComponentA";
 // Redux basic [Counter] demo
 import ReduxCounter from './Components/Redux/Pages/Counter'
 
-// redux, react-redux and redux-thunk for UserReducer deom
+// redux, react-redux and redux-thunk for UserReducer demo
 // React Redux [UserReducer]
 
-// ACE HTMLTemplate demo
+// Convert ACE HTML Template to React JS demo
 import Home from './Components/HTMLTemplate/Template/Home'
 
 import './App.css';
@@ -119,7 +120,7 @@ function App() {
       {/* +++++ Redux basic Counter demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
       {/* <ReduxCounter /> */}
     
-      {/* +++++ ACE HTMLTemplate demo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}    
+      {/* +++++ Convert ACE HTML Template to React JS demo ++++++++++++++++++++++++++++++++++++++++++ */}
       {/* <Home></Home> */}
     </div>
   );

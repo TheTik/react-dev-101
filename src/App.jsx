@@ -19,7 +19,7 @@
 */
 
 // Crete react project and deploy
-import ShowUsers from "./Components/FetchData/ShowUsers";
+import ShowUsers, { HelloAppDev } from "./Components/FetchData/ShowUsers";
 
 // Lifecycle demo
 import CounterClass from "./Components/LifecycleDemo/CounterClass"
@@ -72,8 +72,9 @@ function App() {
       {/* <DataTable /> */}
 
       {/* +++++ ShowUsers demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-      {/* <ShowUsers /> */}
-
+      <HelloAppDev />
+      <ShowUsers />
+      
       {/* +++++ Lifecycle demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
       {/* <CounterClass /> */}
 

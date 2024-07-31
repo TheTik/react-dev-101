@@ -7,7 +7,6 @@
 // - Remove this command <React.StrictMode> in main.jsx
 
 import React, { useState, useEffect } from 'react'
-import axios from "axios"; // npm install axios
 
 const Event = () => {
 
@@ -42,25 +41,3 @@ const Event = () => {
 }
 
 export default Event
-
-
-
-
-
-
-
-
-
-// const apiUrl = "https://669890d82069c438cd6f2242.mockapi.io/userInfo";
-
-// const [users, setUsers] = useState();
-// const getUsers = async () => {
-//     await axios.get(apiUrl).then((res) => {
-//         setUsers(res.data);
-//         console.log(res.data);
-//     });
-// };
-
-// useEffect(() => { 
-//     getUsers(); 
-// }, []);

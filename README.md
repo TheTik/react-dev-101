@@ -24,6 +24,8 @@ email         Faker.js        internet.email
 phoneNumber   Faker.js        phone.number
 
 Packet install.
+# npm install express
+# npm install cors
 # npm install axios
 # npm install react-router-dom
 # npm install redux 
@@ -31,12 +33,12 @@ Packet install.
 # npm install redux-thunk
 # npm install @reduxjs/toolkit
 
-//import DataTable from "./Components/DataTable";
-
 # npm install jquery 
 # npm install jquery datatables.net datatables.net-dt datatables.net-responsive-dt
 # npm install --save-dev @types/jquery @types/datatables.net
 # npm install -g typescript
+
+//import DataTable from "./Components/DataTable";
 
 - Create tsconfig.json : # tsc --init
 tsconfig.json 
@@ -314,13 +316,13 @@ import { useState, useEffect } from 'react'
 
 const ShowUsers = () => {
 
-    const [users, setusers] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:8081/api/users")
             .then((res) => res.json())
             .then((res) => {
-                setusers(res);
+                setUsers(res);
             });
     }, []);
     console.log(users);

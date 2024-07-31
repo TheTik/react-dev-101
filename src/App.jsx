@@ -72,8 +72,8 @@ function App() {
       {/* <DataTable /> */}
 
       {/* +++++ ShowUsers demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-      <HelloAppDev />
-      <ShowUsers />
+      {/* <HelloAppDev />
+      <ShowUsers /> */}
       
       {/* +++++ Lifecycle demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
       {/* <CounterClass /> */}

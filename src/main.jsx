@@ -140,7 +140,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // ACE HTML Template
 //################################################################################################# 
 // import { RouterProvider, createBrowserRouter } from 'react-router-dom' //npm install react-router-dom
-// import UIPatent1 from './Components/HTMLTemplate/UIPatent1/Index.jsx'
+// import AppDevPatent from './Components/HTMLTemplate/AppDevPatent/Index.jsx'
 
 // import Default from './Components/HTMLTemplate/Template/Default.jsx'
 
@@ -154,8 +154,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 //                       element: <Default />
 //                   },    
 //                   {
-//                     path: "/UIPatent1",
-//                     element: <UIPatent1 />
+//                     path: "/AppDevPatent",
+//                     element: <AppDevPatent />
 //                 },                      
 //       ],
 //   },

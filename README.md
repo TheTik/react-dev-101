@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-# AppDev 
+# AppDev tutorial 101
 
 # Install Node.js https://nodejs.org/en/download/package-manager
 # Install VSCode Extension  

@@ -73,8 +73,8 @@ const ShowUsers = () => {
     return (
         <div>
             <ul>
-                {users.map(users => (
-                    <li key={users.id}>{users.id}:{users.name}</li>
+                {users.map(user => (
+                    <li key={user.id}>{user.id}:{user.name}</li>
                 )
                 )}
             </ul>

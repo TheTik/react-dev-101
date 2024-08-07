@@ -16,9 +16,9 @@
 // #4 Feching Data from an API
 // #5 Clean up when a component unmounts
 
-import { number } from 'prop-types';
 import React from 'react'
 import { useState, useEffect, useRef } from 'react'
+import { number } from 'prop-types';
 
 const CountUseEffect = () => {
 

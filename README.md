@@ -8,13 +8,19 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
+---------------------------------------------------------------------------------------------------------------------------------
 # AppDev tutorial 101
+---------------------------------------------------------------------------------------------------------------------------------
+Setup 
+1) # Install Node.js https://nodejs.org/en/download/package-manager
+   # node -v
 
-# Install Node.js https://nodejs.org/en/download/package-manager
-# Install VSCode Extension  
-  - ES7+ React/Redux/React-Native snippets
+2) # Install VSCode Extension  
+     - ES7+ React/Redux/React-Native snippets
 
-Web service API : https://mockapi.io/  
+3) Web service API : https://mockapi.io/  
+3.1) Create new resource : userIno
+
 Schema
 Id            Object ID
 createdAt     Faker.js        date.recent
@@ -22,6 +28,30 @@ name          Faker.js        name.fullName
 avatar        Faker.js        image.avatar
 email         Faker.js        internet.email
 phoneNumber   Faker.js        phone.number
+
+3.2) Explanation aboute
+- Generate all
+- Reset all
+- userInfo -> Data
+- userInfo -> Edit
+  - Explanation example Object template
+  - Endpoints API
+    - GET       /userInfo
+    - GET       /userInfo/:id
+    - POST      /userInfo
+    - PUT       /userInfo/:id
+    - DELETE    /userInfo/:id
+- userInfo -> Delete
+- API endpoint : click on https://669890d82069c438cd6f2242.mockapi.io/:endpoint for show the response data
+  Click on Pretty-print[√] for display the json format.
+
+3.3) Open post man for test API
+     - fetchUsers
+     - createUser and show result on mockapi.io
+     - editUser by id and show result on mockapi.io https://669890d82069c438cd6f2242.mockapi.io/userInfo/XXX 
+       -> XXX is importance !!! for update data
+    - deleteUser by id and show result on mockapi.io https://669890d82069c438cd6f2242.mockapi.io/userInfo/XXX
+       -> XXX is importance !!! for delete data
 
 Packet install.
 # npm install express
@@ -76,7 +106,7 @@ tsconfig.json
 }
 
 ---------------------------------------------------------------------------------------------------------------------------------
-Web API
+Create Project
 ---------------------------------------------------------------------------------------------------------------------------------
 1) npm create vite@latest
 
@@ -84,7 +114,7 @@ Web API
 > create-vite
 
 /* 1.1) Enter Project name : [reate01] */
-1.1) ? Project name: » vite-project
+Re1.1) ? Project name: » vite-project
 
 /* 1.2) Select a framework : [Reactnp] */
 ? Select a framework: » - Use arrow-keys. Return to submit.
@@ -132,44 +162,57 @@ Port 5173 is in use, trying another one...
   ➜  Local:   http://localhost:5174/
   ➜  Network: use --host to expose
   ➜  press h + enter to show help  
-  
-2) Crete Backend folder.
+
+1.6) Explanation about each program folders.
+- node_modules
+- public
+- src
+  - assets
+  - app.css
+  - app.jsx
+  - index.css
+  - main.jsx
+- index.html
+Explanation about below tag.
+...
+    <div id="app"></div>
+    <script type="module" src="/src/main.jsx"></script>
+...    
+Explanation about : index.html -> main.jsx -> app.jsx
+- package.jon
+  - scripts session !Import
+    - npm run dev
+    - npm run build
+    - npm run preview
+  - dependencies session !Import
+  - devDependencies session !Import
+
+1.7) Packet install.
+# npm install express
+# npm install cors
+# npm install axios
+# npm install react-router-dom
+# npm install redux
+# npm install react-redux
+# npm install redux-thunk
+# npm install @reduxjs/toolkit
+
+# npm install jquery
+# npm install jquery datatables.net datatables.net-dt datatables.net-responsive-dt
+# npm install --save-dev @types/jquery @types/datatables.net
+# npm install -g typescript
+
+---------------------------------------------------------------------------------------------------------------------------------
+Crate Backend Web API
+---------------------------------------------------------------------------------------------------------------------------------  
+2) Crete backend folder.
 2.1) Install packet : npm install express  
-2.2) Create server.js in Backend folder.
-
-2.3) CORS : npm install cors
-*************************************************
-
-  //console.log(req.headers);
-  //console.log(req.get('origin'));
-  //console.log(req.headers.host);
-  //console.log(req.get('host'));
-  //console.log(req.headers.origin); 
-  //console.log(req.header('Origin'));
-  //console.log(req.socket.remoteAddress);
-
-*************************************************
-Enter below code :
-
+2.2) Install CORS packet : npm install cors
+2.3) Create server.js in backend folder.
+***************************************************************************************************
 import express from 'express'; // npm install express 
-// import cors from 'cors'; // npm install cors
 
 const app = express();
-
-// // add cors middleware 
-// var allowlist = ['http://example1.com', 'http://example2.com','localhost:8081', 'localhost:5174'];
-// var corsOptionsDelegate = function (req, callback) {
-//   var corsOptions;
-//   var origin = req.headers.host;
-//   if (allowlist.indexOf(origin) !== -1) {
-//     corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-//     callback(null, corsOptions);    
-//   } else {
-//     corsOptions = { origin: false }; // disable CORS for this request
-//     callback(new Error('Not allowed by CORS')); // callback expects
-//   }
-// }
-// app.use(cors(corsOptionsDelegate));
 
 app.get('/api/users', /*cors(corsOptionsDelegate),*/ (req,res) => {  
     res.send([
@@ -306,18 +349,25 @@ app.get('/api/users', /*cors(corsOptionsDelegate),*/ (req,res) => {
 
 const port = process.env.port || 8081;
 app.listen(port, ()=> console.log('Listening on port ' + port + ' : http://localhost:'+ port +'/api/users'));
+***************************************************************************************************
+2.4) # cd .\backend\
+2.5) # node .\server.js
+2.6) # http://localhost:8081/api/users
+2.7) # Go to post man and test ExpressGetUsers 
 
 3) Create frontend : Components in frontend
 3.1) Create [FetchData\ShowUsers.jsx] in Components folder.
-# refc
-*************************************************
+***************************************************************************************************
+[Step 1] # rafc
+
 import React from 'react'
-import { useState, useEffect } from 'react'
+[Step 2] import { useState, useEffect } from 'react'
 
 const ShowUsers = () => {
 
-    const [users, setUsers] = useState([]);
+[Step 3]    const [users, setUsers] = useState([]);
 
+[Step 4]    
     useEffect(() => {
         fetch("http://localhost:8081/api/users")
             .then((res) => res.json())
@@ -327,6 +377,7 @@ const ShowUsers = () => {
     }, []);
     console.log(users);
 
+[Step 5]    
     return (
         <div>
             <ul>
@@ -340,6 +391,42 @@ const ShowUsers = () => {
 }
 
 export default ShowUsers
+***************************************************************************************************
+3.2) Edit "src/App.jsx" remove unnecessary code...
+- *. import
+- return only reace fragments <></>
+3.3) Enter...
+...
+import ShowUsers from '../Components/FetchData/ShowUsers'
+...
+<ShowUsers/>
+...
+
+3.5) Edit "/backend/server.js"
+...
+import cors from 'cors'; // npm install cors
+...
+// add cors middleware 
+var allowlist = ['http://example1.com', 'http://example2.com','localhost:8081', 'localhost:5174'];
+var corsOptionsDelegate = function (req, callback) {
+  var corsOptions;
+  var origin = req.headers.host;
+  if (allowlist.indexOf(origin) !== -1) {
+    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+    callback(null, corsOptions);    
+  } else {
+    corsOptions = { origin: false }; // disable CORS for this request
+    callback(new Error('Not allowed by CORS')); // callback expects
+  }
+}
+app.use(cors(corsOptionsDelegate));
+...
+3.6) Explanation about : var origin = req.headers.host; for allow access web api.
+3.7) !Importance -> Restart node server
+3.7) Test ShowUser component for access... 
+
+3.8) Explanation about cors and comment code on "/backend/server.js" for disable CORS
+and then test ShowUser component for access... Ctrl + F5 
 
 ***************************************************
 The component will throw exception error about CORS
@@ -355,6 +442,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({  
 
+[Step 1]
 // !!!
   server:{
     proxy:{
@@ -366,8 +454,13 @@ export default defineConfig({
   plugins: [react()],
 })
 *************************************************
+2.5.2) Edit file : package.json
+...
+  "type": "module",
+  "proxy":"http://localhost:8081",
+...  
 
-2.5.2) Edit file : src/Components/FetchData/ShowUser.jsx
+2.5.3) Edit file : src/Components/FetchData/ShowUser.jsx
 *************************************************
 import React from 'react'
 import { useState, useEffect } from 'react'
@@ -376,6 +469,7 @@ const ShowUsers = () => {
 
     const [users, setusers] = useState([]);
 
+[Step 1]
     useEffect(() => {
         //fetch("http://localhost:8081/api/users")
         fetch("/api/users")
@@ -401,15 +495,10 @@ const ShowUsers = () => {
 export default ShowUsers
 *************************************************
 
-2.5.3) Edit file : package.json
-...
-  "type": "module",
-  "proxy":"http://localhost:8081",
-...  
 
 3) Deploy
 3.1) # npm run build
-3.2) Copy dist to Backend folder 
+3.2) Copy "dist" to Backend folder 
 3.3) Edit file : server.js
 *************************************************
 import express from 'express';
@@ -417,7 +506,10 @@ import cors from 'cors'; // $ npm install cors
 
 const app = express();
 
+[Step 1]
 // !!!
 app.use(express.static('dist'))
 ...
 *************************************************
+3.4) !Importance -> Restart node server
+Test : http://localhost:8081/

@@ -132,8 +132,8 @@ Re1.1) ? Project name: » vite-project
 ? Select a variant: » - Use arrow-keys. Return to submit.
     TypeScript
     TypeScript + SWC
->   JavaScript
-    JavaScript + SWC
+    JavaScript
+>   JavaScript + SWC
     Remix ↗
 
 Scaffolding project in D:\MyData\AppDev\MyGit\ReactDev\reate01...
@@ -395,7 +395,7 @@ export default ShowUsers
 3.2) Edit "src/App.jsx" remove unnecessary code...
 - *. import
 - return only reace fragments <></>
-3.3) Enter...
+3.3) Implement ShowUsers into app.jsx
 ...
 import ShowUsers from '../Components/FetchData/ShowUsers'
 ...

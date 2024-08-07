@@ -6,6 +6,10 @@
 - useState
 - useEffect
 - useRef
+- Memoization
+  - memo
+  - useCallback
+  - useMemo
 - useContext
 - React Router DOM
   - RouterProvider, createBrowserRouter
@@ -45,6 +49,11 @@ import WindowResizeUseEffect from "./Components/UseEffectDemo/WindowResizeUseEff
 import UseRefDOM from "./Components/UseRefDemo/UseRefDOM";
 import Stopwatch from "./Components/UseRefDemo/Stopwatch";
 
+// Memoization
+import ReactMemo from './Components/Memoization/ReactMemo'
+import UseCallbackDemo from './Components/Memoization/UseCallbackDemo'
+import UseMemoDemo from './Components/Memoization/UseMemoDemo'
+
 // useContext demo
 import ComponentA from "./Components/UseContextDemo/ComponentA";
 
@@ -61,6 +70,7 @@ import ReduxCounter from './Components/Redux/Pages/Counter'
 
 // Convert ACE HTML Template to React JS demo
 import Home from './Components/HTMLTemplate/Template/Home'
+
 
 import './App.css';
 
@@ -104,6 +114,11 @@ function App() {
       {/* <UseRefDOM /> */}
       {/* <Stopwatch /> */}
 
+      {/* +++++ Memoization +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}      
+      {/* <ReactMemo /> */}
+      {/* <UseCallbackDemo /> */}
+      {/* <UseMemoDemo /> */}
+
       {/* +++++ useContext demo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
       {/* <ComponentA /> */}
 
@@ -111,7 +126,8 @@ function App() {
       {/* <ReduxCounter /> */}
     
       {/* +++++ Convert ACE HTML Template to React JS demo ++++++++++++++++++++++++++++++++++++++++++ */}
-      {/* <Home></Home> */}
+      {/* <Home /> */}
+
     </div>
   );
 }

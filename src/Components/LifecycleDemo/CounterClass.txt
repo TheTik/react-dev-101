@@ -1,0 +1,63 @@
+1) Crate code rce + tab
+***************************************************************************************************
+import React, { Component } from 'react';
+
+class CounterClass extends React.Component {
+
+[Step 1]
+  constructor() {
+    super();
+    this.state = {
+      count: 0,
+    };
+  }
+
+[Step 2]
+  componentDidMount() {
+    console.log('Component DID MOUNT.');
+  }
+
+[Step 3]
+  componentDidUpdate(prevProps, prevState) {
+    console.log('Component DID UPDATE.');
+
+    // You can access the previous props and state here
+    console.log('Previous state:', prevState);
+    console.log('Current state:', this.state);
+  }
+
+[Step 4]
+  componentWillUnmount() {
+    console.log('Component WILL UNMOUNTED!');
+  }
+
+[Step 6]
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+[Step 7]
+  handleDecrement = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
+
+[Step 5]
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.handleIncrement}>Increment</button>
+        <button onClick={this.handleDecrement}>Decrement</button><br />
+      </div>
+    );
+  }
+}
+
+export default CounterClass;
+***************************************************************************************************
+2) Implement CounterClass into app.jsx
+...
+import CounterClass from '../Components/LifecycleDemo/CounterClass'
+...
+<CounterClass />
+...

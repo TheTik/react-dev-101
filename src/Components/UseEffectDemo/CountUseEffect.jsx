@@ -43,19 +43,21 @@ const CountUseEffect = () => {
         }
     }
 
-    // const displayCount = () => {
-    //     if (initialized.current === false) {
-    //         initialized.current = true
+    /*
+    const displayCount = () => {
+        if (initialized.current === false) {
+            initialized.current = true
 
-    //         console.log("First call on mount...");
-    //         document.title = `Count: ${count}`;
+            console.log("First call on mount...");
+            document.title = `Count: ${count}`;
 
-    //         return () => {
-    //             // SOME CLEANUP CODE
-    //             console.log("Cleanup...");               
-    //         }
-    //     } // end if : initialized.current
-    // }
+            return () => {
+                // SOME CLEANUP CODE
+                console.log("Cleanup...");               
+            }
+        } // end if : initialized.current
+    }
+    */
 
     // 1. useEffect(() => {}) : Runs after every re-render
     useEffect(displayCount);

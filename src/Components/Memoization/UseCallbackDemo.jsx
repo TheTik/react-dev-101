@@ -1,3 +1,5 @@
+// useCallback : Cache a function.
+
 // [Step 1]
 import React, { useState, memo, useCallback } from 'react'
 

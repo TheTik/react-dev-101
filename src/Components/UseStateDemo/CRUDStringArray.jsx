@@ -2,24 +2,24 @@ import { useState } from 'react'
 
 const CRUDStringArray = () => {
 
-    const [friends, setFriends] = useState(["AAA", "BBB", "CCC"]);
+    const [data, setData] = useState(["AAA", "BBB", "CCC"]);
 
     const handleAdd = ()=> {
-        setFriends([...friends, "EEE"]);
+        setData([...data, "EEE"]);
     }
 
     const handRemove = ()=> {
-        setFriends(friends.filter((f) => f !== "EEE"));
+        setData(data.filter((f) => f !== "EEE"));
     }
 
     const handUpdate = ()=> {
-        setFriends(friends.map((f) => (f === "EEE" ? "!EEE!" : f)))
+        setData(data.map((f) => (f === "EEE" ? "!EEE!" : f)))
     }
 
     return (
         <>
             {
-                friends.map((f) => (
+                data.map((f) => (
                     <li key={Math.random()}>{f}</li>
                 ))
             }

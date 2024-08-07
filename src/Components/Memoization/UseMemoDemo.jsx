@@ -1,3 +1,5 @@
+// useMemo : Cache a component rendered.
+
 // [Step 1] import useMemo
 import React, { useState, memo, useMemo } from 'react'
 

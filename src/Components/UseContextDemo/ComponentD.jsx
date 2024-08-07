@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext } from './ComponentA';
 
-
 const ComponentD = (props) => {
 
     const userLevel = useContext(UserContext);

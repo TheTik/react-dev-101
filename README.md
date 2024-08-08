@@ -188,26 +188,11 @@ Explanation about : index.html -> main.jsx -> app.jsx
   - dependencies session !Import
   - devDependencies session !Import
 
-1.7) Packet install.
-# npm install express
-# npm install cors
-# npm install axios
-# npm install react-router-dom
-# npm install redux
-# npm install react-redux
-# npm install redux-thunk
-# npm install @reduxjs/toolkit
-
-# npm install jquery
-# npm install jquery datatables.net datatables.net-dt datatables.net-responsive-dt
-# npm install --save-dev @types/jquery @types/datatables.net
-# npm install -g typescript
-
-1.8) tailwindcss
-1.8.1) Install Tailwind CSS
+1.7) tailwindcss
+1.7.1) Install Tailwind CSS
 # npm install -D tailwindcss postcss autoprefixer
 # npx tailwindcss init -p
-1.8.2) Configure your template paths
+1.7.2) Configure your template paths
 Add the paths to all of your template files in your tailwind.config.js file.
 ***************************************************************************************************
 /** @type {import('tailwindcss').Config} */
@@ -226,13 +211,28 @@ export default {
   plugins: [],
 }
 ***************************************************************************************************
-1.8.3) Add the Tailwind directives to your CSS
+1.7.3) Add the Tailwind directives to your CSS
 Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
 ***************************************************************************************************
 @tailwind base;
 @tailwind components;
 @tailwind utilities
-***************************************************************************************************
+***************************************************************************************************  
+
+1.8) Packet install.
+# npm install express
+# npm install cors
+# npm install axios
+# npm install react-router-dom
+# npm install redux
+# npm install react-redux
+# npm install redux-thunk
+# npm install @reduxjs/toolkit
+
+# npm install jquery
+# npm install jquery datatables.net datatables.net-dt datatables.net-responsive-dt
+# npm install --save-dev @types/jquery @types/datatables.net
+# npm install -g typescript
 
 ---------------------------------------------------------------------------------------------------------------------------------
 Crate Backend Web API

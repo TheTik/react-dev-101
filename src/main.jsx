@@ -6,11 +6,11 @@ import App from './App.jsx'
 //################################################################################################# 
 // Default demo
 //################################################################################################# 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+// )
 
 //################################################################################################# 
 // React Router DOM for UserCRUDDemo components
@@ -47,11 +47,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 //################################################################################################# 
 // import { createStore } from 'redux' // # npm install redux 
 // import { Provider } from 'react-redux' // # npm install react-redux
-//
+
 // import rootReducer from './Components/Redux/CombineStore.jsx'
-//
+
 // const store = createStore(rootReducer)
-//
+
 // ReactDOM.createRoot(document.getElementById('root')).render(
 //   <React.StrictMode>  
 //     <Provider store={store}>

@@ -12,11 +12,11 @@ Topic Tutorial
   - useCallback
   - useMemo
 - useContext
-- React Router DOM
+- React Router DOM : UserCRUDDemo
   - RouterProvider, createBrowserRouter
   - useParams
   - Link
-- React Redux 
+- React Redux : UserReducer
   - Redux basic
   - Redux thunk
 - Redux Toolkit
@@ -58,20 +58,25 @@ import UseMemoDemo from './Components/Memoization/UseMemoDemo'
 // useContext demo
 import ComponentA from "./Components/UseContextDemo/ComponentA";
 
-// React Router DOM : Check code demo on main.jsx...  
-// RouterProvider, createBrowserRouter
-// useParams
-// Link
+// Components name is [UserCRUDDemo]. Check code demo on main.jsx...
+// - React Router DOM 
+// - RouterProvider, createBrowserRouter
+// - useParams
+// - Link
 
 // Redux basic [Counter] demo
 import ReduxCounter from './Components/Redux/Pages/Counter'
 
-// redux, react-redux and redux-thunk for UserReducer demo
-// React Redux [UserReducer]
+// Components name is [UserReducer]. Check code demo on main.jsx...
+// - redux
+// - react-redux
+// - redux-thunk for UserReducer demo
+
+// Components name is [ReduxToolkit]. Check code demo on main.jsx...
+// Redux Toolkit
 
 // Convert ACE HTML Template to React JS demo
 import Home from './Components/HTMLTemplate/Template/Home'
-
 
 import './App.css';
 

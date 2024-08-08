@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-//import './index.css'
+import './index.css'
 
 //################################################################################################# 
 // Default demo
@@ -15,31 +15,31 @@ import App from './App.jsx'
 //################################################################################################# 
 // React Router DOM for UserCRUDDemo components
 //################################################################################################# 
-// import { RouterProvider, createBrowserRouter } from 'react-router-dom' //npm install react-router-dom
+import { RouterProvider, createBrowserRouter } from 'react-router-dom' //npm install react-router-dom
 
-// import UserList from './Components/UserCRUDDemo/UserList.jsx'
-// import UserEdit from './Components/UserCRUDDemo/UserEdit.jsx'
+import UserList from './Components/UserCRUDDemo/UserList.jsx'
+import UserEdit from './Components/UserCRUDDemo/UserEdit.jsx'
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <UserList />,
-//   },
-//   {
-//     path: "/create",
-//     element: <UserEdit />,
-//   },
-//   {
-//     path: "/edit/:id",
-//     element: <UserEdit />,
-//   },
-// ]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <UserList />,
+  },
+  {
+    path: "/create",
+    element: <UserEdit />,
+  },
+  {
+    path: "/edit/:id",
+    element: <UserEdit />,
+  },
+]);
 
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   // <React.StrictMode>
-//     <RouterProvider router={router} />
-//   // </React.StrictMode>,
-// )
+ReactDOM.createRoot(document.getElementById('root')).render(
+  // <React.StrictMode>
+    <RouterProvider router={router} />
+  // </React.StrictMode>,
+)
 //################################################################################################# 
 
 //################################################################################################# 

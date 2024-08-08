@@ -203,6 +203,37 @@ Explanation about : index.html -> main.jsx -> app.jsx
 # npm install --save-dev @types/jquery @types/datatables.net
 # npm install -g typescript
 
+1.8) tailwindcss
+1.8.1) Install Tailwind CSS
+# npm install -D tailwindcss postcss autoprefixer
+# npx tailwindcss init -p
+1.8.2) Configure your template paths
+Add the paths to all of your template files in your tailwind.config.js file.
+***************************************************************************************************
+/** @type {import('tailwindcss').Config} */
+export default {
+
+  
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+
+
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+***************************************************************************************************
+1.8.3) Add the Tailwind directives to your CSS
+Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
+***************************************************************************************************
+@tailwind base;
+@tailwind components;
+@tailwind utilities
+***************************************************************************************************
+
 ---------------------------------------------------------------------------------------------------------------------------------
 Crate Backend Web API
 ---------------------------------------------------------------------------------------------------------------------------------  

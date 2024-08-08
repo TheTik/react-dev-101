@@ -265,7 +265,7 @@ import { useSelector, useDispatch } from 'react-redux' // npm install redux reac
                             <button className="rounded bg-blue-500 px-3 py-1 text-white">Edit</button>
                         </Link>
                     </div>
-                    <hr />
+                    {/* <hr /> */}
                 </div>
             ))}
         </div>
@@ -619,7 +619,7 @@ const UserList = () => {
                             <button className="rounded bg-blue-500 px-3 py-1 text-white">Edit</button>
                         </Link>
                     </div>
-                    <hr />
+                    {/* <hr /> */}
                 </div>
             ))}
         </div>

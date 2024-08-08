@@ -63,7 +63,7 @@ const UserList = () => {
                                     <button className="rounded bg-blue-500 px-3 py-1 text-white">Edit</button>
                                 </Link>
                             </div>
-                            <hr />
+                            {/* <hr /> */}
                         </div>
                     ))}
                 </div>

@@ -1,0 +1,47 @@
+1) Crate a folder and file to "/src/Component/EventDemo/Event.jsx"
+2) Crate CounterClass.jsx contant by pass rafce + tab
+***************************************************************************************************
+[Step 1] Import useState and useEffect
+import React, { useState, useEffect } from 'react'
+
+const Event = () => {
+
+    [Step 2]
+    const datas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    [Step 3]
+    useEffect(() => {
+        console.log(datas);
+    }, [datas]);
+
+    [Step 5]
+    function deleteData(id) {
+        console.log(`Delete item Id : ${id}`);
+    }
+
+    [Step 4]
+    return (
+        <div>
+            <ul>
+                {
+                    datas.map(data => (
+                        <li key={data}>{data}
+                            <button onClick={() => deleteData(data)}>Delete</button>
+                        </li>
+                    )
+                    )}
+            </ul>
+        </div>
+    )
+}
+
+export default Event
+***************************************************************************************************
+3) Implement CounterClass into App.jsx
+...
+import Event from "./Components/EventDemo/Event"
+...
+<Event />
+...
+
+3) Explanation about source code. Focus as file "Event.jsx"

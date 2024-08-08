@@ -4,7 +4,7 @@ const Stopwatch = () => {
 
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
-  const intervalIdRef = useRef(null);
+  const intervalIdRef = useRef(null); // keep interval Id
   const startTimeRef = useRef(0);
 
   useEffect(() => {

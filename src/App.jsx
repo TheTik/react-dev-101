@@ -83,24 +83,38 @@ function App() {
       {/* <DataTable /> */}
 
       {/* +++++ ShowUsers demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-      {/* <HelloAppDev />
-      <ShowUsers /> */}
+      {/* /src/Components/FetchData/ShowUsers.jsx  */}
+      {/* 
+      <HelloAppDev />
+      <ShowUsers /> 
+      */}
       
       {/* +++++ Lifecycle demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+      {/* /src/Components/LifecycleDemo/CounterClass.jsx  */}
       {/* <CounterClass /> */}
 
-      {/* +++++ Event demo : camelCase ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+      {/* +++++ Event demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+      {/* /src/Components/EventDemo/Event.jsx  */}
       {/* <Event /> */}
 
       {/* +++++ props demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-      {/* <StudentProps name="AppDev_1" age={18} isStudent={true} />
-      <StudentProps name="AppDev_2" age={20} isStudent={false} /> */}
+      {/* /src/Components/PropsDemo/StudentProps.jsx  */}
+      {/* 
+      <StudentProps name="AppDev_1" age={18} isStudent={true} />
+      <StudentProps name="AppDev_2" age={20} isStudent={false} /> 
+      */}
 
-      {/* <StudentPropType name="AppDev_1" age="18" isStudent={true} />
-      <StudentPropType name="AppDev_2" age={20} isStudent={false} /> */}
+      {/* /src/Components/PropsDemo/StudentPropType.jsx  */}
+      {/* 
+      <StudentPropType name="AppDev_1" age="18" isStudent={true} />
+      <StudentPropType name="AppDev_2" age={20} isStudent={false} /> 
+      */}
 
-      {/* <StudentDefaultProps name="AppDev_1" age="18" isStudent={true} />
-      <StudentDefaultProps /> */}
+      {/* /src/Components/PropsDemo/StudentDefaultProps.jsx  */}
+      {/* 
+      <StudentDefaultProps name="AppDev_1" age="18" isStudent={true} />
+      <StudentDefaultProps /> 
+      */}
 
       {/* +++++ useState demo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
       {/* <Counter />  */}

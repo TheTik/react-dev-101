@@ -1,4 +1,5 @@
-1) Crate code rce + tab
+1) Crate a folder and file to "/src/Component/LifecycleDemo/CounterClass.jsx"
+2) Crate CounterClass.jsx contant by pass rce + tab
 ***************************************************************************************************
 import React, { Component } from 'react';
 
@@ -55,9 +56,11 @@ class CounterClass extends React.Component {
 
 export default CounterClass;
 ***************************************************************************************************
-2) Implement CounterClass into app.jsx
+2) Implement CounterClass into App.jsx
 ...
 import CounterClass from '../Components/LifecycleDemo/CounterClass'
 ...
 <CounterClass />
 ...
+
+3) Explanation about source code. Focus as file "CounterClass.jsx"

@@ -364,6 +364,12 @@ app.listen(port, ()=> console.log('Listening on port ' + port + ' : http://local
 import React from 'react'
 [Step 2] import { useState, useEffect } from 'react'
 
+[Step 6] 
+export function HelloAppDev() // Split the components further and Export statement
+{
+    return <h1>Hello AppDev</h1>
+}
+
 const ShowUsers = () => {
 
 [Step 3]    const [users, setUsers] = useState([]);
@@ -400,7 +406,8 @@ export default ShowUsers
 ...
 import ShowUsers from '../Components/FetchData/ShowUsers'
 ...
-<ShowUsers/>
+<HelloAppDev />
+<ShowUsers />
 ...
 
 3.5) Edit "/backend/server.js"

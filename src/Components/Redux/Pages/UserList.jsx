@@ -20,7 +20,7 @@ const UserList = () => {
         dispatch(fetchUsers());
     }, [dispatch]);
 
-    // main -> App -> CombineStore -> rootReducer.user
+    // main -> App -> CombineStore.user -> rootReducer.users
     const users = useSelector((state) => state.user.users); // subscribe data
 
     return (

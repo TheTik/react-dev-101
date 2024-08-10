@@ -24,8 +24,7 @@ const Counter = () => {
                     onChange={(e) => setNewCount(Number(e.target.value))}
                 />
                 <button onClick={() => dispatch(setCount(newCount))} >Set Count</button>
-            </div>
-            
+            </div>            
         </div>
     )
 }

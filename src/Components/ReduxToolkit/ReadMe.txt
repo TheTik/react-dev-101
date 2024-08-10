@@ -112,6 +112,17 @@ export default Store
 import { RouterProvider, createBrowserRouter } from 'react-router-dom' //npm install react-router-dom
 import { Provider } from 'react-redux' // # npm install react-redux
 
+// [Step 1] : Delete below lines.
+//import { createStore, applyMiddleware } from 'redux' // # npm install redux 
+//import { Provider } from 'react-redux' // # npm install react-redux
+//import { thunk } from "redux-thunk";   // # npm install redux-thunk
+
+//import rootReducer from './Components/Redux/CombineStore.jsx'
+
+//import UserList from './Components/Redux/Pages/UserList.jsx'
+//import UserEdit from './Components/Redux/Pages/UserEdit.jsx'
+
+// [Step 2]
 import UserList from './Components/ReduxToolkit/Pages/UserList.jsx'
 import UserEdit from './Components/ReduxToolkit/Pages/UserEdit.jsx'
 
@@ -130,6 +141,10 @@ const router = createBrowserRouter([
   },
 ]);
 
+// [Step 3] : Delete below lines.
+// const store = createStore(rootReducer, applyMiddleware(thunk))
+
+// [Step 4]
 import store from './Components/ReduxToolkit/Store.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -150,14 +165,22 @@ ReactDOM.createRoot(document.getElementById('root')).render(
    
 4.2) Edit file "Components/ReduxToolkit/Pages/UserList.jsx"
 ... 
+// Change value as below line.
+import { fetchUsers, deleteUser } from '../Actions/userActions'
+// To
 import { fetchUsers, deleteUser } from '../userSlice'
 ...
    
 4.3) Edit file "Components/ReduxToolkit/Pages/UserEdit.jsx"   
 ...
+// Change value as below line.
+import { createUser, editUser, fetchUser } from '../Actions/userActions'
+...
+To
 import { createUser, editUser, fetchUser } from '../userSlice'
 ...
 
+4.3) Find below line and change result value.
 ... 
 [From]
 if (result.success) {

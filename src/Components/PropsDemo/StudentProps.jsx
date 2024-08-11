@@ -10,9 +10,9 @@ const StudentProps = (props) => {
       <div>
         <p>Name: {props.name}</p>
         <p>Age: {props.age}</p>
-        <p>Student: {props.isStudent ? "Yes" :  "No"}</p>
+        <p>Student: {props.isStudent ? "Yes" : "No"}</p>
         <hr />
-      </div>      
+      </div>
     </>
   )
 }

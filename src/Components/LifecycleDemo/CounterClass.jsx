@@ -25,6 +25,7 @@ class CounterClass extends React.Component {
   // componentDidUpdate(prevProps, prevState) จะทำงานหลังการ render() 
   // แต่ไม่ถูกเรียกใช้ในการ render ครั้งแรก เราสามารถจัดการ DOM หรือ โหลดข้อมูลจาก API ได้ใน method นี้ 
   // และเราสามารถเช็คค่า props และ state ก่อนหน้านี้ได้ด้วย prevProps และ prevState
+  // Side Effect
   componentDidUpdate(prevProps, prevState) {
     console.log('Component DID UPDATE.');
 
@@ -54,7 +55,7 @@ class CounterClass extends React.Component {
       <div>
         <p>Count: {this.state.count}</p>
         <button onClick={this.handleIncrement}>Increment</button>
-        <button onClick={this.handleDecrement}>Decrement</button><br />
+        <button onClick={this.handleDecrement}>Decrement</button>
       </div>
     );
   }

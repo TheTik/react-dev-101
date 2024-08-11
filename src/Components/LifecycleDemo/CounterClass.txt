@@ -1,5 +1,15 @@
 1) Crate a folder and file to "/src/Component/LifecycleDemo/CounterClass.jsx"
 2) Crate CounterClass.jsx contant by pass rce + tab
+3) Implement CounterClass componet at App.jsx
+***************************************************************************************************
+...
+import CounterClass from './Components/LifecycleDemo/CounterClass'
+...
+<CounterClass />
+...
+***************************************************************************************************
+
+4) Codeing...
 ***************************************************************************************************
 import React, { Component } from 'react';
 
@@ -14,11 +24,19 @@ class CounterClass extends React.Component {
   }
 
 [Step 2]
+  // componentDidMount() จะถูกเรียกใช้งานทันทีหลังการ render() 
+  // เหมาะสำหรับการดึงข้อมูลจาก API การ set up subscriptions ต่าง ๆ 
+  // และถ้าเราทำการ subscription แล้วอย่าลืม unsubscription ใน componentWillUnmount()
+
   componentDidMount() {
     console.log('Component DID MOUNT.');
   }
 
 [Step 3]
+  // componentDidUpdate(prevProps, prevState) จะทำงานหลังการ render() 
+  // แต่ไม่ถูกเรียกใช้ในการ render ครั้งแรก เราสามารถจัดการ DOM หรือ โหลดข้อมูลจาก API ได้ใน method นี้ 
+  // และเราสามารถเช็คค่า props และ state ก่อนหน้านี้ได้ด้วย prevProps และ prevState
+  // Side Effect
   componentDidUpdate(prevProps, prevState) {
     console.log('Component DID UPDATE.');
 
@@ -28,6 +46,9 @@ class CounterClass extends React.Component {
   }
 
 [Step 4]
+  // componentWillUnmount() method นี้จะถูกเรียกใช้งานก่อนที่ component จะถูก unmount 
+  // ทิ้งไปโดยปกติเราจะใช้เพื่อ reset ค่า network request, subscription
+
   componentWillUnmount() {
     console.log('Component WILL UNMOUNTED!');
   }
@@ -48,7 +69,7 @@ class CounterClass extends React.Component {
       <div>
         <p>Count: {this.state.count}</p>
         <button onClick={this.handleIncrement}>Increment</button>
-        <button onClick={this.handleDecrement}>Decrement</button><br />
+        <button onClick={this.handleDecrement}>Decrement</button>
       </div>
     );
   }

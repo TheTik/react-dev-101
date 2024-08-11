@@ -31,10 +31,10 @@ const UseRefDOM = () => {
         console.log("Interval Id : ", intervalIdRef.current);
         
         // Specify how to clean up after this effect:
-        // return () => {
-        //     console.log("Cleanup... Interval Id : ", intervalIdRef.current);
-        //     clearInterval(intervalIdRef.current);
-        // }
+        return () => {
+            console.log("Cleanup... Interval Id : ", intervalIdRef.current);
+            clearInterval(intervalIdRef.current);
+        }
     }, []);
 
     function handleClick() {

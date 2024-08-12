@@ -10,11 +10,14 @@ const Stopwatch = () => {
   useEffect(() => {
     if (isRunning) {
       intervalIdRef.current = setInterval(() => {
-        setElapsedTime(Date.now() - startTimeRef.current);
+        let elapsedTime = Date.now() - startTimeRef.current;
+        console.log(elapsedTime);
+        setElapsedTime(elapsedTime);
       }, 10);
     }
 
     return () => {
+      console.log("Cleanup...");
       clearInterval(intervalIdRef.current);
     }
   }, [isRunning]);

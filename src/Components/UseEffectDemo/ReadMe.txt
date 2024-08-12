@@ -158,7 +158,7 @@ const WindowResizeUseEffect = () => {
 
   // !!! Stop อธิบาย !!!
   // [Step 8] 
-  // โปรแกรม work นะ แต่ EVENT LISTENER ADDED เพิ่มขึ้นไม่หยุด
+  // โปรแกรม work นะ แต่ EVENT LISTENER ADDED เพิ่มขึ้นไม่หยุด !!!
   // window.addEventListener("resize", handleResize);
   // console.log("EVENT LISTENER ADDED");
 

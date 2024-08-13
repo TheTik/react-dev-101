@@ -152,6 +152,8 @@ app.get('/api/users', /*cors(corsOptionsDelegate),*/ (req,res) => {
             "id": "15"
         },
     ]);
+
+    console.log(res);
 });
 
 const port = process.env.port || 8081;

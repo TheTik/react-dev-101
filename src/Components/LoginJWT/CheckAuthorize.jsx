@@ -7,7 +7,6 @@ async function getAuthenticateToken() {
         const requestOptions = {
             method: 'GET',
             redirect: "follow",
-            credentials: 'same-origin'
         };
 
         response = await fetch("/api/authenticateToken", requestOptions)
@@ -16,7 +15,6 @@ async function getAuthenticateToken() {
 
         return response;
     } catch (error) {
-        //console.log('Error : ', error);
         throw new Error(error.message);
     }
 }

@@ -10,9 +10,6 @@ async function postLogin(raw) {
         };
 
         response = await fetch('/api/login', requestOptions);
-        //if (!response.ok) {
-        //  throw new Error('Cannot fetch user data.');
-        //}
         return response.json();
     } catch (error) {
         console.log('Error : ', error);
@@ -39,11 +36,10 @@ const Login = () => {
         // Check Loing authorize and set cookies authorize.
         const response = await postLogin(login);
         setMessage(response.message);
-
         
-        // Set localStorage
+        // Set localStorage -------------------------------------------------------------------------------
         localStorage.setItem('local_storage_token', response.token);
-        
+
         // Get localStorage
         const local_storage_token_val = localStorage.getItem("local_storage_token");
         console.log(`local_storage_token_val : ${local_storage_token_val}`);

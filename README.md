@@ -56,6 +56,12 @@ phoneNumber   Faker.js        phone.number
 Packet install.
 # npm install express
 # npm install cors
+# npm install jsonwebtoken
+# npm install bcrypt
+# npm install cookie-parser
+# npm install nodemon -D
+# npm install dotenv --save
+
 # npm install prop-types
 # npm install axios
 # npm install react-router-dom

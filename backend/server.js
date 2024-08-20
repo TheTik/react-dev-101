@@ -1,10 +1,11 @@
 import express from 'express'; // npm install express 
-//import cors from 'cors'; // npm install cors
+import cors from 'cors'; // npm install cors
+import jwt from 'jsonwebtoken'; // npm install jsonwebtoken
+import bcrypt from 'bcrypt'; // npm install bcrypt
+import dotenv from 'dotenv'; // npm install dotenv --save
+import cookieParser from 'cookie-parser'; // npm install cookie-parser
 
 const app = express();
-
-// For deploy...
-app.use(express.static('dist'))
 
 // // add cors middleware 
 // var allowlist = ['http://example1.com', 'http://example2.com','localhost:8081', 'localhost:5174'];
@@ -21,7 +22,34 @@ app.use(express.static('dist'))
 // }
 // app.use(cors(corsOptionsDelegate));
 
-app.get('/api/users', /*cors(corsOptionsDelegate),*/ (req,res) => {  
+// Require and configure dotenv, will load .env.development or .env.production
+dotenv.config({ path: ['.env.local', '.env'] });
+
+// Parse request body as JSON
+app.use(express.json());
+
+app.use(cookieParser());
+
+// For deploy...
+app.use(express.static('dist'));
+
+
+
+
+async function getUsers() {
+    var response = [];
+    try {
+        response = await fetch("https://669890d82069c438cd6f2242.mockapi.io/userInfo");
+        if (!response.ok) {
+            throw new Error('Cannot fetch users data.');
+        }
+        return response.json();
+    } catch (error) {
+        console.log('Error : ', error);
+    }
+}
+
+app.get('/api/users', /*cors(corsOptionsDelegate),*/(req, res) => {
     res.send([
         {
             "createdAt": "2024-07-17T13:02:27.813Z",
@@ -152,9 +180,68 @@ app.get('/api/users', /*cors(corsOptionsDelegate),*/ (req,res) => {
             "id": "15"
         },
     ]);
+});
 
-    console.log(res);
+
+
+app.post("/api/login", async (req, res) => {
+    //console.log("process.env.SECRET_KEY : ",process.env.SECRET_KEY);
+
+    const { email, password } = req.body;
+    //console.log(email, password);
+
+    const users = await getUsers();
+    //console.log(users);
+
+    const user = users.filter((x) => {
+        if ((x.email === email) && (x.phoneNumber == password)) {
+            return x;
+        }
+    });
+    //console.log("user : ", user);
+
+    if (user.length > 0) {
+        //ทดสอบการเข้ารหัส
+        const hashPassword = await bcrypt.hash(user[0].phoneNumber, 10); // สมมุติว่าเป็นข้อมูลที่ถูกเข้ารหัสฝั่ง Database
+        const match = await bcrypt.compare(user[0].phoneNumber, hashPassword);
+        if (!match) {
+            await res.clearCookie("token");
+            return res.status(400).send({ message: "Invalid email or password" });
+        } else {
+            const token = jwt.sign({ email, role: "admin" }, process.env.SECRET_KEY, { expiresIn: "1h" });
+            //console.log(token);
+
+            res.cookie("token", token, {
+                maxAge: 300000,
+                secure: true,
+                httpOnly: true,
+                sameSite: "none",
+            });
+
+            return res.send({ message: "Login successful", token: token });
+        }
+    }else{
+        await res.clearCookie("token");
+    }
+
+    return res.status(400).send({ message: "Invalid email or password" });
+});
+
+app.get('/api/authenticateToken', (req, res, next) => {
+    const token = req.cookies.token;
+    console.log(token);
+    if ((token == null) || (typeof token === 'undefined')) return res.sendStatus(401); // if there isn't any token
+
+    try {
+        const user = jwt.verify(token, process.env.SECRET_KEY);
+        req.user = user;
+        console.log("user", user);
+        return res.send({ message: "Login successful", user: user });
+        //next();
+    } catch (error) {
+        return res.sendStatus(403);
+    }
 });
 
 const port = process.env.port || 8081;
-app.listen(port, ()=> console.log('Listening on port ' + port + ' : http://localhost:'+ port +'/api/users'));
+app.listen(port, () => console.log('Listening on port ' + port + ' : http://localhost:' + port + '/api/users'));

@@ -78,12 +78,16 @@ import ReduxCounter from './Components/Redux/Pages/Counter'
 // Convert ACE HTML Template to React JS demo
 import Home from './Components/HTMLTemplate/Template/Home'
 
+// LoginJWT demo
+// Check code demo on main.jsx...
+
 import './App.css';
 
 function App() {
 
   return (
     <div className="App">
+
       {/* Hello AppDev !!! */}
       {/* <DataTable /> */}
 

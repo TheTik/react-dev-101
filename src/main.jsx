@@ -6,11 +6,11 @@ import './index.css'
 //################################################################################################# 
 // Default demo
 //################################################################################################# 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+// )
 
 //################################################################################################# 
 // React Router DOM for UserCRUDDemo components
@@ -167,4 +167,31 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 //       <RouterProvider router={router} />
 //   </React.StrictMode>
 // );
+
+
+//################################################################################################# 
+// LoginJWT
+//################################################################################################# 
+import { RouterProvider, createBrowserRouter } from 'react-router-dom' //npm install react-router-dom
+
+import Login from './Components/LoginJWT/Login'
+import CheckAuthorize from './Components/LoginJWT/CheckAuthorize.jsx'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/CheckAuthorize",
+    element: <CheckAuthorize />,
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+      <RouterProvider router={router} />
+  </React.StrictMode>
+);
 

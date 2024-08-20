@@ -21,6 +21,8 @@ Topic Tutorial
   - Redux thunk
 - Redux Toolkit
 - How to convert ACE HTML Template to React JS
+- LoginJWT
+- react-hook-form
 */
 
 // Crete react project and deploy
@@ -80,6 +82,9 @@ import Home from './Components/HTMLTemplate/Template/Home'
 
 // LoginJWT demo
 // Check code demo on main.jsx...
+
+// react-hook-form
+import Login from './Components/FormValidation/Login'
 
 import './App.css';
 
@@ -151,6 +156,9 @@ function App() {
     
       {/* +++++ Convert ACE HTML Template to React JS demo ++++++++++++++++++++++++++++++++++++++++++ */}
       {/* <Home /> */}
+
+      {/* +++++ react-hook-form demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+      <Login />
 
     </div>
   );

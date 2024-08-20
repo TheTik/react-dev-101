@@ -69,6 +69,7 @@ Packet install.
 # npm install react-redux
 # npm install redux-thunk
 # npm install @reduxjs/toolkit
+# npm install --save react-hook-form
 
 # npm install jquery 
 # npm install jquery datatables.net datatables.net-dt datatables.net-responsive-dt

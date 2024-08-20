@@ -1,3 +1,14 @@
+Inistall nodemon : nodemon is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+// # npm install --save-dev nodemon
+// ...
+// "scripts": {
+//     ...
+//     "backend-dev": "nodemon ./backend/server.js"
+//   },
+// ...
+// run nodemon
+// # npm run backend-dev
+
 1) Crate a folder and file to "/src/Component/LoginJWT/Login.jsx"
 2) Crate a folder and file to "/src/Component/LoginJWT/CheckAuthorize.jsx"
 3) Crate Login.jsx and CheckAuthorize.jsx contant by pass rce + tab

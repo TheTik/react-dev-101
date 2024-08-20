@@ -5,6 +5,16 @@ import bcrypt from 'bcrypt'; // npm install bcrypt
 import dotenv from 'dotenv'; // npm install dotenv --save
 import cookieParser from 'cookie-parser'; // npm install cookie-parser
 
+// # npm install --save-dev nodemon
+// ...
+// "scripts": {
+//     ...
+//     "backend-dev": "nodemon ./backend/server.js"
+//   },
+// ...
+// run nodemon
+// # npm run backend-dev
+
 const app = express();
 
 // // add cors middleware 

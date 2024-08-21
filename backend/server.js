@@ -1,9 +1,10 @@
 import express from 'express'; // npm install express 
 import cors from 'cors'; // npm install cors
 import jwt from 'jsonwebtoken'; // npm install jsonwebtoken
-import bcrypt from 'bcrypt'; // npm install bcrypt
+import bcrypt from 'bcrypt'; // npm install bcrypt : Hash Function
 import dotenv from 'dotenv'; // npm install dotenv --save
 import cookieParser from 'cookie-parser'; // npm install cookie-parser
+
 
 // # npm install --save-dev nodemon 
 // or
@@ -213,8 +214,20 @@ app.post("/api/login", async (req, res) => {
     });
     //console.log("user : ", user);
 
+    /*
+    Authentication และ Authorization 2 ตัวนี้เหมือนจะคล้ายๆกัน แต่มีความหมายต่างกันสิ้นเชิง
+    Authentication (การรับรองความถูกต้อง) คือกระบวนการในการยืนยันตัวตนของผู้ใช้งานหรือกระบวนการก่อนที่จะอนุญาต
+    ให้เข้าถึงระบบหรือ Resource ที่ได้รับการป้องกัน นั่นคือ กระบวนการรับรองความถูกต้อง เป็นการตรวจสอบว่าผู้ใช้งานคนนั้นเป็นคนที่อ้างว่าเป็นจริงหรือไม่ 
+    โดยระบบจะขอข้อมูลที่เป็นความลับจากผู้ใช้งาน เช่น รหัสผ่าน คำตอบจากคำถามรักษาความปลอดภัย ข้อมูล Biographic หรือรหัสผ่านชั่วคราว เพื่อใช้ในการพิสูจน์ตัวตน
+
+    Authorization (การอนุญาต) หลังจากที่ผู้ใช้งานผ่านการรับรองความถูกต้อง (Authentication) มาแล้ว ขั้นตอนต่อไปคือการอนุญาต 
+    ซึ่งเป็นกระบวนการในการกำหนดสิทธิ์ให้กับผู้ใช้งานที่ผ่านการรับรองความถูกต้องแล้วว่าสามารถเข้าถึง Resource หรือข้อมูลใดได้บ้าง 
+    การอนุญาตจะควบคุมว่าผู้ใช้งานมีสิทธิ์ในการดำเนินการอะไรกับ Resource นั้นๆได้บ้าง เช่น อ่าน เขียน แก้ไข หรือลบ เป็นต้น
+    */
+
     if (user.length > 0) {
-        //ทดสอบการเข้ารหัส
+        // Hash Function คือ Algorithm ทางคณิตศาสตร์ สำหรับนำมาใช้ในการคำนวณเพื่อหาสิ่งที่เรียกว่า 
+        // อัตลักษณ์หรือเอกลักษณ์ (Fingerprint) ของข้อมูลที่เราต้องการ
         const hashPassword = await bcrypt.hash(user[0].phoneNumber, 10); // สมมุติว่าเป็นข้อมูลที่ถูกเข้ารหัสฝั่ง Database
         const match = await bcrypt.compare(user[0].phoneNumber, hashPassword);
         if (!match) {

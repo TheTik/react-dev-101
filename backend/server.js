@@ -246,7 +246,7 @@ app.post("/api/login", async (req, res) => {
 
             return res.send({ message: "Login successful", token: token });
         }
-    }else{
+    } else {
         await res.clearCookie("token");
     }
 
@@ -254,8 +254,16 @@ app.post("/api/login", async (req, res) => {
 });
 
 app.get('/api/authenticateToken', (req, res, next) => {
-    const token = req.cookies.token;
-    console.log(token);
+
+    let token = req.cookies.token;
+    //console.log("cookies : ", token);
+
+    // Crack token
+    const authHeader = req.headers['authorization'];
+    //console.log("Authorization :", authHeader);    
+    if (authHeader) { token = authHeader.split(' ')[1]; }
+    //token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGRldkBob3RtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNDIwNzk4OCwiZXhwIjoxNzI0MjExNTg4fQ.aCl5zVQ1P5KYK_Mx_gbqWp9risc4W0YS-8u2MAOd3nk";
+
     if ((token == null) || (typeof token === 'undefined')) return res.sendStatus(401); // if there isn't any token
 
     try {

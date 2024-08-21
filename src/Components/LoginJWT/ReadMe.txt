@@ -115,7 +115,12 @@ app.post("/api/login", async (req, res) => {
 [Step 4]
 app.get('/api/authenticateToken', (req, res, next) => {
     const token = req.cookies.token;
-    console.log(token);
+    //console.log(token);
+
+    // Crack token
+    const authHeader = req.headers['authorization'];
+    if (authHeader) { token = authHeader.split(' ')[1]; }
+
     if ((token == null) || (typeof token === 'undefined')) return res.sendStatus(401); // if there isn't any token
 
     try {

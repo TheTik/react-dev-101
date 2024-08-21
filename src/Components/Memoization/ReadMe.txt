@@ -167,9 +167,9 @@ const fibonacci = (num) => {
       num--;
     }  
 
-    for (let i = 0; i < 1000; i++) console.log(".");
+    for (let i = 0; i < 1000; i++) console.log("Fibonacci Calculator.");
 
-    console.log("Fibonacci Calculator.", b)
+    console.log("Result : ", b)
     return b;
 }
 
@@ -214,7 +214,7 @@ const UseMemoDemo = () => {
 
 // [Step 7] Implement memo ทำให้เป็น Pure component คือ Props เหมือนเดิม Output ก็ต้องได้อย่างเดิม
 const Child = memo(() => {
-    console.log("Child rendered...");
+    for (let i = 0; i < 1000; i++) console.log("Child rendered...");
     return (<div>Child rendered...</div>)
 });
 

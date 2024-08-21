@@ -21,7 +21,7 @@ const UserEdit = () => {
     }
 
     useEffect(() => {
-        getUser(id);
+        if (typeof id !== 'undefined') getUser(id);
     }, [id]);
 
     const handleChange = (e) => {
@@ -31,19 +31,29 @@ const UserEdit = () => {
 
     const handleSave = async () => {
         //console.log(user);
-        const response = await axios.put(`${apiUrl}/${user.id}`, user)
-            .then((response) => {
-                //console.log(response);
-                if (response.status === 200) alert("Data has been saved successfully.");
-            })
-            .catch(function (error) {
-                if (error.response) {
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                    alert("Error!!! data not saved.");
-                }
-            });
+
+        if ((typeof id === 'undefined') || (id === null)) {
+            try {
+                const response = await axios.post(apiUrl, user);
+                if (response.status === 201) alert("Data has been created successfully.");
+            } catch (error) {
+                alert("Error!!! data not created.");
+            }
+        } else {
+            const response = await axios.put(`${apiUrl}/${user.id}`, user)
+                .then((response) => {
+                    //console.log(response);
+                    if (response.status === 200) alert("Data has been saved successfully.");
+                })
+                .catch(function (error) {
+                    if (error.response) {
+                        //console.log(error.response.data);
+                        //console.log(error.response.status);
+                        //console.log(error.response.headers);
+                        alert("Error!!! data not saved.");
+                    }
+                });
+        }
     };
 
     return (

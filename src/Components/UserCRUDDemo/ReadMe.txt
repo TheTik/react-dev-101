@@ -29,6 +29,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // </React.StrictMode>,
 )
 ***************************************************************************************************
+!!! ถ้าเจอ Error !!!
+main.jsx:26 Uncaught TypeError: Cannot read properties of undefined (reading 'createRoot') at main.jsx:26:10
+
+Edit file "main.jsx"
+...
+import ReactDOM from 'react-dom/client'
+...
 
 5) Edit file "UserList.jsx"
 ***************************************************************************************************
@@ -135,6 +142,7 @@ const UserEdit = () => {
 
     // [Step 5]
     const { id } = useParams();
+    console.log(`Id : ${id}`);
 
     // [Step 6]
     const [user, setUser] = useState({
@@ -153,7 +161,7 @@ const UserEdit = () => {
 
     // [Step 11]
     useEffect(() => {
-        getUser(id);
+        if (typeof id !== 'undefined') getUser(id);
     }, [id]);
 
     // [Step 8]
@@ -167,19 +175,28 @@ const UserEdit = () => {
         //console.log(user);
 
         // [Step 12]
-        const response = await axios.put(`${apiUrl}/${user.id}`, user)
-            .then((response) => {
-                //console.log(response);
-                if (response.status === 200) alert("Data has been saved successfully.");
-            })
-            .catch(function (error) {
-                if (error.response) {
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                    alert("Error!!! data not saved.");
-                }
-            });
+        if ((typeof id === 'undefined') || (id === null)) {
+            try {
+                const response = await axios.post(apiUrl, user);
+                if (response.status === 201) alert("Data has been created successfully.");
+            } catch (error) {
+                alert("Error!!! data not created.");
+            }
+        } else {
+            const response = await axios.put(`${apiUrl}/${user.id}`, user)
+                .then((response) => {
+                    //console.log(response);
+                    if (response.status === 200) alert("Data has been saved successfully.");
+                })
+                .catch(function (error) {
+                    if (error.response) {
+                        //console.log(error.response.data);
+                        //console.log(error.response.status);
+                        //console.log(error.response.headers);
+                        alert("Error!!! data not saved.");
+                    }
+                });
+        }
 
     };
     

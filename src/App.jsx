@@ -84,7 +84,7 @@ import Home from './Components/HTMLTemplate/Template/Home'
 // Check code demo on main.jsx...
 
 // react-hook-form
-import Login from './Components/FormValidation/Login'
+import LoginJWT from './Components/FormValidation/Login'
 
 import './App.css';
 
@@ -158,7 +158,7 @@ function App() {
       {/* <Home /> */}
 
       {/* +++++ react-hook-form demo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-      <Login />
+      <LoginJWT />
 
     </div>
   );

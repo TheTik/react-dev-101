@@ -103,6 +103,10 @@ const UserList = () => {
                                 <button
                                     className="mr-2 rounded bg-red-500 px-3 py-1 text-white"
                                     onClick={async () => await deleteUser(user.id)}
+
+                                    // !!! อธิบายห้ามเขียนแบบนี้เด็ดขาด !!!
+                                    //onClick={deleteUser(user.id)}
+                                    
                                 >
                                     Delete
                                 </button>
@@ -185,16 +189,10 @@ const UserEdit = () => {
         } else {
             const response = await axios.put(`${apiUrl}/${user.id}`, user)
                 .then((response) => {
-                    //console.log(response);
                     if (response.status === 200) alert("Data has been saved successfully.");
                 })
                 .catch(function (error) {
-                    if (error.response) {
-                        //console.log(error.response.data);
-                        //console.log(error.response.status);
-                        //console.log(error.response.headers);
-                        alert("Error!!! data not saved.");
-                    }
+                    if (error.response) alert("Error!!! data not saved.");                    
                 });
         }
 

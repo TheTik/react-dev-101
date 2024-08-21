@@ -260,7 +260,7 @@ app.get('/api/authenticateToken', (req, res, next) => {
 
     // Crack token
     const authHeader = req.headers['authorization'];
-    //console.log("Authorization :", authHeader);    
+    //console.log("Authorization : ", authHeader);    
     if (authHeader) { token = authHeader.split(' ')[1]; }
     //token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGRldkBob3RtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNDIwNzk4OCwiZXhwIjoxNzI0MjExNTg4fQ.aCl5zVQ1P5KYK_Mx_gbqWp9risc4W0YS-8u2MAOd3nk";
 

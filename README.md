@@ -59,8 +59,8 @@ Packet install.
 # npm install jsonwebtoken
 # npm install bcrypt
 # npm install cookie-parser
-# npm install nodemon -D
 # npm install dotenv --save
+# npm install --save-dev nodemon
 
 # npm install prop-types
 # npm install axios

@@ -9,7 +9,8 @@
           13+21 = 34
 // เราก็ตอบไปว่า 34 และมีเพื่อนคนที่สองมากถามอีกแต่เราคำนวณไว้แล้วแล้วเราก็จำได้ว่าเป็น 34 เราก็ตอบไปเลยไม่ต้องคำนวฯ แต่การใช้มากเกินไปก็ส่งผลไม่ดีเช่นกัน
 
-// memo
+// memo : เป็น Higher Order Component และมันจะทำการ memoization เหมือน PureComponent ทุกประการ 
+// จะ render เฉพาะตอน Props เปลี่ยน คือ Props เหมือนเดิม Output ก็ต้องได้อย่างเดิม
 // How components get rerendered.
 // - Parent get rendered. [Focus this topic]
 // - States or props change.
@@ -17,7 +18,7 @@
 // - forceUpdate called.
 // Make component "pure component" 
 // - Using React.memo
-// - Pure component
+// - Pure component : จะ render เฉพาะเวลาที่ Props มีการเปลี่ยนแปลง
 // - Only rerendered if props changed.     
 
 // useCallback : Cache a function.
@@ -67,15 +68,13 @@ const ReactMemo = () => {
     )
 }
 
-// [Step 7]
-// Normal component.
+// [Step 7] Side effects คือการดำเนินการที่เกิดขึ้นนอกขอบเขตของวงจรการ render ของคอมโพเนนต์
  const Child = () => {
      console.log("Child rendered...");
      return (<div>Child rendered...</div>)
 }
 
-//[Step 9] Implement memo
-// Pure component.
+//[Step 9] Implement memo ทำให้เป็น Pure component คือ Props เหมือนเดิม Output ก็ต้องได้อย่างเดิม
 const Child = memo(() => {
     console.log("Child rendered...");
     return (<div>Child rendered...</div>)
@@ -110,10 +109,12 @@ const UseCallbackDemo = () => {
     const [count2, setCount2] = useState(0);
 
     // [Step 9]
+    // useCallback เป็น React Hook อันนึงที่ใช้สำหรับจัดเก็บ cache ของ function 
+    // ช่วยลดการสร้าง function ใหม่ในการ render ในแต่ละครั้งที่เกิดการ render ซ้ำของ component.
     const count2Callback = useCallback(() => {
         setCount2(count2 + 1);
     },[count2]); 
-    // เป็นตัวบอก react ว่าให้สร้าง object หรือ function ใหม่หรือเปล่า
+    // ตรวจสอบการทำงานเฉพาะ count2 เท่านั้น
 
     return (
         <div>
@@ -124,23 +125,21 @@ const UseCallbackDemo = () => {
             // [Step 8] !!! Stop อธิบายโปรแกรมก่อน !!!
             <hr /><Child onClick={() => setCount2(count + 1)} /><hr />
 
-            [Step 10]
+            [Step 10]  !!! Stop อธิบายโปรแกรมก่อน !!!
             <hr /><Child onClick={count2Callback} /><hr />
         </div>
     )
 }
 
-[Step 7]
-// Normal component.
+[Step 7] Side effects คือการดำเนินการที่เกิดขึ้นนอกขอบเขตของวงจรการ render ของคอมโพเนนต์
 const Child = () => {
-     console.log("Child rendered...");
+     for (let i = 0; i < 1000; i++) console.log("Child rendered...");
      return (<div>Child rendered...</div>)
 }
 
-// [Step 11]
-// Pure component.
+// [Step 11] Implement memo ทำให้เป็น Pure component คือ Props เหมือนเดิม Output ก็ต้องได้อย่างเดิม
 const Child = memo(() => {
-    console.log("Child rendered...");
+    for (let i = 0; i < 1000; i++) console.log("Child rendered...");
     return (<div>Child rendered...</div>)
 });
 
@@ -167,6 +166,9 @@ const fibonacci = (num) => {
       b = temp;
       num--;
     }  
+
+    for (let i = 0; i < 1000; i++) console.log(".");
+
     console.log("Fibonacci Calculator.", b)
     return b;
 }
@@ -190,10 +192,13 @@ const UseMemoDemo = () => {
     // [Step 8] !!! อธิบาย !!!
     const fibo = fibonacci(count1);
 
-    // [Step 9] !!! อธิบาย !!!
+    // [Step 10] !!! อธิบาย !!!
+    // useMemo : Cache a component rendered.
+    // useMemo ใช้สำหรับคำนวณค่าที่จะเก็บไว้ในตัวแปร และจะคำนวณค่าใหม่เมื่อค่าที่ใช้ในการคำนวณมีการเปลี่ยนแปลง
     const fibo = useMemo(() => {
         return fibonacci(count1);
-    },[count1]);
+    }, [count1]);
+    // ตรวจสอบการทำงานเฉพาะ count1 เท่านั้น
 
     // [Step 9]
     return (
@@ -202,16 +207,15 @@ const UseMemoDemo = () => {
             <h1>Fibonacci : {fibo}</h1>
             <button onClick={() => setCount1(count1 + 1)}>Add count 1</button>
             <hr /><Child /><hr />
-            <h1>Count2 : {count2}</h1>
-            <button onClick={() => setCount2(count2 + 1)}>Add count 2</button>
+            <h1>Count2 : {count2}</h1>            
         </div>
     )
 }
 
-// [Step 7]
+// [Step 7] Implement memo ทำให้เป็น Pure component คือ Props เหมือนเดิม Output ก็ต้องได้อย่างเดิม
 const Child = memo(() => {
     console.log("Child rendered...");
     return (<div>Child rendered...</div>)
 });
 
-export default UseMemoDemo
+export default UseMemoDemo<button onClick={() => setCount2(count2 + 1)}>Add count 2</button>

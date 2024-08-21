@@ -24,17 +24,15 @@ const ReactMemo = () => {
     )
 }
 
-//[Step 2]
-// Normal component.
+//[Step 2] Side effects คือการดำเนินการที่เกิดขึ้นนอกขอบเขตของวงจรการ render ของคอมโพเนนต์
 // const Child = () => {
-//     console.log("Child rendered...");
+//     for (let i = 0; i < 1000; i++) console.log("Child rendered...");
 //     return (<div>Child rendered...</div>)
 // }
 
-//[Step 3] Implement memo
-// Pure component.
+//[Step 3] Implement memo ทำให้เป็น Pure component คือ Props เหมือนเดิม Output ก็ต้องได้อย่างเดิม
 const Child = memo(() => {
-    console.log("Child rendered...");
+    for (let i = 0; i < 1000; i++) console.log("Child rendered...");
     return (<div>Child rendered...</div>)
 });
 

@@ -65,13 +65,13 @@ Packet install.
 # npm install prop-types
 # npm install axios
 # npm install react-router-dom
-# npm install redux 
+# npm install redux
 # npm install react-redux
 # npm install redux-thunk
 # npm install @reduxjs/toolkit
 # npm install --save react-hook-form
 
-# npm install jquery 
+# npm install jquery
 # npm install jquery datatables.net datatables.net-dt datatables.net-responsive-dt
 # npm install --save-dev @types/jquery @types/datatables.net
 # npm install -g typescript

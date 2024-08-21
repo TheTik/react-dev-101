@@ -1,5 +1,3 @@
-// useMemo : Cache a component rendered.
-
 // [Step 1] import useMemo
 import React, { useState, memo, useMemo } from 'react'
 
@@ -20,6 +18,9 @@ const fibonacci = (num) => {
       b = temp;
       num--;
     }  
+
+    for (let i = 0; i < 1000; i++) console.log(".");
+
     console.log("Fibonacci Calculator.", b)
     return b;
   }
@@ -32,6 +33,8 @@ const UseMemoDemo = () => {
     //const fibo = fibonacci(count1);
 
     // [Step 2]
+    // useMemo : Cache a component rendered.
+    // useMemo ใช้สำหรับคำนวณค่าที่จะเก็บไว้ในตัวแปร และจะคำนวณค่าใหม่เมื่อค่าที่ใช้ในการคำนวณมีการเปลี่ยนแปลง
     const fibo = useMemo(() => {
         return fibonacci(count1);
     },[count1]);

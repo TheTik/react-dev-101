@@ -1,5 +1,3 @@
-// useCallback : Cache a function.
-
 // [Step 1]
 import React, { useState, memo, useCallback } from 'react'
 
@@ -8,11 +6,14 @@ const UseCallbackDemo = () => {
     // [Step 2]
     const [count2, setCount2] = useState(0);
 
-    // [Step 4]
+    // [Step 4] 
+    // useCallback : Cache a function.
+    // useCallback เป็น React Hook อันนึงที่ใช้สำหรับจัดเก็บ cache ของ function 
+    // ช่วยลดการสร้าง function ใหม่ในการ render ในแต่ละครั้งที่เกิดการ render ซ้ำของ component.
     const count2Callback = useCallback(() => {
         setCount2(count2 + 1);
-    },[count2]); 
-    // เป็นตัวบอก react ว่าให้สร้าง object หรือ function ใหม่หรือเปล่า
+    }, [count2]);
+    // ตรวจสอบการทำงานเฉพาะ count2 เท่านั้น
 
     return (
         <div>
@@ -29,15 +30,15 @@ const UseCallbackDemo = () => {
     )
 }
 
-// Normal component.
+// Side effects คือการดำเนินการที่เกิดขึ้นนอกขอบเขตของวงจรการ render ของคอมโพเนนต์
 // const Child = () => {
-//     console.log("Child rendered...");
+//     for (let i = 0; i < 1000; i++) console.log("Child rendered...");
 //     return (<div>Child rendered...</div>)
 // }
 
-// Pure component.
+// Implement memo ทำให้เป็น Pure component คือ Props เหมือนเดิม Output ก็ต้องได้อย่างเดิม
 const Child = memo(() => {
-    console.log("Child rendered...");
+    for (let i = 0; i < 1000; i++) console.log("Child rendered...");
     return (<div>Child rendered...</div>)
 });
 

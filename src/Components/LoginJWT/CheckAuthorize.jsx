@@ -10,8 +10,7 @@ async function getAuthenticateToken() {
         };
 
         response = await fetch("/api/authenticateToken", requestOptions)
-                         .then((response) =>  response.json())
-                         ;
+                         .then((response) => response.json());
 
         return response;
     } catch (error) {
@@ -30,7 +29,6 @@ const CheckAuthorize = () => {
         try {
             const result = await getAuthenticateToken();
             setAuth(result);
-            
         } catch (error) {
             var errorObj = {
                 message: error.message,

@@ -35,9 +35,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  //<React.StrictMode>
       <RouterProvider router={router} />
-  </React.StrictMode>
+  //</React.StrictMode>
 );
 
 5) Create file ".env.local" at root directory.
@@ -114,7 +114,7 @@ app.post("/api/login", async (req, res) => {
 
 [Step 4]
 app.get('/api/authenticateToken', (req, res, next) => {
-    const token = req.cookies.token;
+    let token = req.cookies.token;
     //console.log(token);
 
     // Crack token
@@ -126,7 +126,7 @@ app.get('/api/authenticateToken', (req, res, next) => {
     try {
         const user = jwt.verify(token, process.env.SECRET_KEY);
         req.user = user;
-        console.log("user", user);
+        //console.log("user", user);
         return res.send({ message: "Login successful", user: user });
         //next();
     } catch (error) {

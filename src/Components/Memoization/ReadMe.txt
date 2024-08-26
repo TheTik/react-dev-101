@@ -70,13 +70,13 @@ const ReactMemo = () => {
 
 // [Step 7] Side effects คือการดำเนินการที่เกิดขึ้นนอกขอบเขตของวงจรการ render ของคอมโพเนนต์
  const Child = () => {
-     console.log("Child rendered...");
+     for (let i = 0; i < 1000; i++) console.log("Child rendered...");
      return (<div>Child rendered...</div>)
 }
 
 //[Step 9] Implement memo ทำให้เป็น Pure component คือ Props เหมือนเดิม Output ก็ต้องได้อย่างเดิม
 const Child = memo(() => {
-    console.log("Child rendered...");
+    for (let i = 0; i < 1000; i++) console.log("Child rendered...");
     return (<div>Child rendered...</div>)
 });
 
@@ -207,7 +207,8 @@ const UseMemoDemo = () => {
             <h1>Fibonacci : {fibo}</h1>
             <button onClick={() => setCount1(count1 + 1)}>Add count 1</button>
             <hr /><Child /><hr />
-            <h1>Count2 : {count2}</h1>            
+            <h1>Count2 : {count2}</h1>    
+            button onClick={() => setCount2(count2 + 1)}>Add count 2</button>        
         </div>
     )
 }

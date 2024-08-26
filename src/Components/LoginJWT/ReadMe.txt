@@ -71,7 +71,8 @@ app.post("/api/login", async (req, res) => {
     //console.log("process.env.SECRET_KEY : ",process.env.SECRET_KEY);
 
     const { email, password } = req.body;
-    //console.log(email, password);
+    //console.log(`Email : ${email}`);
+    //console.log(`Password : ${password}`);
 
     const users = await getUsers();
     //console.log(users);
@@ -86,13 +87,16 @@ app.post("/api/login", async (req, res) => {
     if (user.length > 0) {
         //ทดสอบการเข้ารหัส
         const hashPassword = await bcrypt.hash(user[0].phoneNumber, 10); // สมมุติว่าเป็นข้อมูลที่ถูกเข้ารหัสฝั่ง Database
+        // console.log(`hashPassword [DB] : ${hashPassword}`);
+
         const match = await bcrypt.compare(user[0].phoneNumber, hashPassword);
+
         if (!match) {
             await res.clearCookie("token");
             return res.status(400).send({ message: "Invalid email or password" });
         } else {
             const token = jwt.sign({ email, role: "admin" }, process.env.SECRET_KEY, { expiresIn: "1h" });
-            //console.log(token);
+            //console.log(`token : ${token}`);
 
             res.cookie("token", token, {
                 maxAge: 300000,
@@ -108,6 +112,9 @@ app.post("/api/login", async (req, res) => {
     }
 
     return res.status(400).send({ message: "Invalid email or password" });
+
+    // for test only...
+    // return res.sendStatus(200);
 });
 
 ...
@@ -115,23 +122,27 @@ app.post("/api/login", async (req, res) => {
 [Step 4]
 app.get('/api/authenticateToken', (req, res, next) => {
     let token = req.cookies.token;
-    //console.log(token);
+    //console.log(`token : ${token}`);
 
     // Crack token
     const authHeader = req.headers['authorization'];
-    if (authHeader) { token = authHeader.split(' ')[1]; }
+    // console.log(`authHeader : ${authHeader}`);
+    if ((authHeader !== null) && (typeof authHeader !== 'undefined')) { token = authHeader.split(' ')[1]; }
 
     if ((token == null) || (typeof token === 'undefined')) return res.sendStatus(401); // if there isn't any token
 
     try {
         const user = jwt.verify(token, process.env.SECRET_KEY);
         req.user = user;
-        //console.log("user", user);
+        //console.log("user : ", user);
         return res.send({ message: "Login successful", user: user });
         //next();
     } catch (error) {
         return res.sendStatus(403);
     }
+
+    // for test only...
+    // return res.sendStatus(200);
 });
 
 ...
@@ -182,6 +193,7 @@ const Login = () => {
         // [Step 7]
         // Check Loing authorize and set cookies authorize.
         const response = await postLogin(login);
+        //console.log(response);
         setMessage(response.message);
         
         // [Step 8] อธิบายเรือง Cookie, Local Storage and Session Storage

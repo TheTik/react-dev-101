@@ -202,11 +202,10 @@ app.post("/api/login", async (req, res) => {
     //console.log("process.env.SECRET_KEY : ",process.env.SECRET_KEY);
 
     const { email, password } = req.body;
-    //console.log(email, password);
+    // console.log(`Email : ${email}`);
+    // console.log(`Password : ${password}`);
 
     const users = await getUsers();
-    //console.log(users);
-
     const user = users.filter((x) => {
         if ((x.email === email) && (x.phoneNumber == password)) {
             return x;
@@ -229,6 +228,8 @@ app.post("/api/login", async (req, res) => {
         // Hash Function คือ Algorithm ทางคณิตศาสตร์ สำหรับนำมาใช้ในการคำนวณเพื่อหาสิ่งที่เรียกว่า 
         // อัตลักษณ์หรือเอกลักษณ์ (Fingerprint) ของข้อมูลที่เราต้องการ
         const hashPassword = await bcrypt.hash(user[0].phoneNumber, 10); // สมมุติว่าเป็นข้อมูลที่ถูกเข้ารหัสฝั่ง Database
+        // console.log(`hashPassword [DB] : ${hashPassword}`);
+
         const match = await bcrypt.compare(user[0].phoneNumber, hashPassword);
         if (!match) {
             await res.clearCookie("token");
@@ -256,20 +257,19 @@ app.post("/api/login", async (req, res) => {
 app.get('/api/authenticateToken', (req, res, next) => {
 
     let token = req.cookies.token;
-    //console.log("cookies : ", token);
+    //console.log(`token : ${token}`);
 
     // Crack token
     const authHeader = req.headers['authorization'];
-    //console.log("Authorization : ", authHeader);    
-    if (authHeader) { token = authHeader.split(' ')[1]; }
-    //token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGRldkBob3RtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNDIwNzk4OCwiZXhwIjoxNzI0MjExNTg4fQ.aCl5zVQ1P5KYK_Mx_gbqWp9risc4W0YS-8u2MAOd3nk";
-
+    //console.log(`authHeader : ${authHeader}`); 
+    if ((authHeader !== null) && (typeof authHeader !== 'undefined')) { token = authHeader.split(' ')[1]; }
+    
     if ((token == null) || (typeof token === 'undefined')) return res.sendStatus(401); // if there isn't any token
 
     try {
         const user = jwt.verify(token, process.env.SECRET_KEY);
         req.user = user;
-        console.log("user", user);
+        console.log("user : ", user);
         return res.send({ message: "Login successful", user: user });
         //next();
     } catch (error) {

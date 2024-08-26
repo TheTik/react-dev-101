@@ -235,18 +235,22 @@ const Login = () => {
         <div>
             <div>
                 Email
-                <input name="email"
-                    value={login.email}
-                    onChange={handleChange}
-                />
+                <div>
+                    <input name="email"
+                        value={login.email}
+                        onChange={handleChange}
+                    />
+                </div>
             </div>
             <div>
                 Password
-                <input name="password"
-                    type="password"
-                    value={login.password}
-                    onChange={handleChange}
-                />
+                <div>
+                    <input name="password"
+                        type="password"
+                        value={login.password}
+                        onChange={handleChange}
+                    />
+                </div>
             </div>
             <button onClick={handleLogin}>Login</button>
             <div>

@@ -84,3 +84,75 @@ const Login = () => {
 }
 
 export default Login
+
+
+/*
+        <div>
+            <form>
+                <div>
+                    Email
+                    <div>
+                        <input
+                            name="email"
+                        />
+                    </div>
+
+
+                </div>
+                <div>
+                    Password
+                    <div>
+                        <input
+                            name="password"
+                            type="password"
+                        />
+                    </div>
+
+                    
+                </div>
+                <button type='submit'>Login</button>
+            </form>
+        </div>
+
+
+        <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    Email
+                    <div>
+                        <input
+                            name="email"
+                        />
+                    </div>
+
+
+
+                    <p style={{ color: 'red', margin: '0' }}>
+                        {errors?.email?.message}
+                    </p>
+
+
+
+                </div>
+                <div>
+                    Password
+                    <div>
+                        <input
+                            name="password"
+                            type="password"
+                        />
+                    </div>
+
+
+
+                    <p style={{ color: 'red', margin: '0' }}>
+                        {errors?.password?.message}
+                    </p>
+
+
+                    
+                </div>
+                <button type='submit'>Login</button>
+            </form>
+        </div>        
+*/

@@ -2,14 +2,60 @@
 How to use ACE html template in react.
 1) Copy all files from "ACE\assets" folder to "public\assets"
 2) Create HTMLTemplate component
+   - Components/HTMLTemplate/Template/Default.jsx
    - Components/HTMLTemplate/Template/Footer.jsx
    - Components/HTMLTemplate/Template/Header.jsx
    - Components/HTMLTemplate/Template/Home.jsx
    - Components/HTMLTemplate/Template/Menu.jsx
    - Components/HTMLTemplate/Template/Setting.jsx
-3) Create UI for demo [UIPatent1]
-4) Create Route into "main.jsx"
-5) Edit "index.html"  
+
+rafce all files...
+
+3)
+    Implement StudentProps componet at App.jsx
+    ...
+    import Home from './Components/HTMLTemplate/Template/Home'
+    ...
+      <Home />
+    ...
+
+4) Create UI for demo [AppDevPatent]
+5) Create Route into "main.jsx"
+//################################################################################################# 
+// ACE HTML Template
+//################################################################################################# 
+import { RouterProvider, createBrowserRouter } from 'react-router-dom' //npm install react-router-dom
+
+//import AppDevPatent from './Components/HTMLTemplate/AppDevPatent/Index.jsx'
+
+import Default from './Components/HTMLTemplate/Template/Default.jsx'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Default />
+      },
+      // {
+      //   path: "/AppDevPatent",
+      //   element: <AppDevPatent />
+      // },
+    ],
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  //   <React.StrictMode>
+  <RouterProvider router={router} />
+  //   </React.StrictMode>
+);
+
+
+6) Edit "index.html"  
 ---------------------------------------------------------------------------------------------------
 From 
 ---------------------------------------------------------------------------------------------------
@@ -162,3 +208,9 @@ To
   });
 
 </script>
+
+7) Edit file "src/Components/HTMLTemplate/Template/Home.jsx"
+8) อธิบาย ace.js
+9) อธิบายการเปลี่ยน class เป็น className
+10) อธิบายการเปลี่ยน style เป็น style={{}}
+

@@ -1,5 +1,6 @@
 import express from 'express'; // npm install express 
 import cors from 'cors'; // npm install cors
+
 import jwt from 'jsonwebtoken'; // npm install jsonwebtoken
 import bcrypt from 'bcrypt'; // npm install bcrypt : Hash Function
 import dotenv from 'dotenv'; // npm install dotenv --save
@@ -36,6 +37,8 @@ const app = express();
 // }
 // app.use(cors(corsOptionsDelegate));
 
+
+
 // Require and configure dotenv, will load .env.development or .env.production
 dotenv.config({ path: ['.env.local', '.env'] });
 
@@ -46,7 +49,6 @@ app.use(cookieParser());
 
 // For deploy...
 app.use(express.static('dist'));
-
 
 
 

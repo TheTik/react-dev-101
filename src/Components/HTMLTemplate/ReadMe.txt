@@ -1,5 +1,9 @@
 
 How to use ACE html template in react.
+
+- Copy "src/Components/DataTable.jsx" to demo folder.
+- Copy all file in folder "src/ReactDataTables/*.*"
+
 1) Copy all files from "ACE\assets" folder to "public\assets"
 2) Create HTMLTemplate component
    - Components/HTMLTemplate/Template/Default.jsx

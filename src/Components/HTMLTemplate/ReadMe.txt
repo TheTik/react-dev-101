@@ -214,7 +214,7 @@ To
 </script>
 
 7) Edit file "src/Components/HTMLTemplate/Template/Home.jsx"
-8) อธิบาย ace.js
-9) อธิบายการเปลี่ยน class เป็น className
-10) อธิบายการเปลี่ยน style เป็น style={{}}
+8) Explanation about ace.js
+9) Explanation about change "class" syntax to "className"
+10) Explanation about change "style" syntax to style={{}}
 

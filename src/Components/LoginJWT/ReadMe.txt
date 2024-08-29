@@ -138,6 +138,7 @@ app.get('/api/authenticateToken', (req, res, next) => {
         return res.send({ message: "Login successful", user: user });
         //next();
     } catch (error) {
+        console.log("!!! Invalid email or password. !!!");
         return res.sendStatus(403);
     }
 
